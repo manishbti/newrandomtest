@@ -1,0 +1,136 @@
+[1m[36mshow_command_test***************************************************************[0m
+[0m[1m[34m* R4 ** changed : False ********************************************************[0m
+[0m[1m[32mvvvv show_command_test ** changed : False vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv INFO[0m
+[0m[1m[32m---- send_command ** changed : False ------------------------------------------- INFO[0m
+[0m! Command: show running-config
+! device: R4 (vEOS-lab, EOS-4.26.10M)
+!
+! boot system flash:/vEOS-lab.swi
+!
+no aaa root
+!
+username katariam privilege 15 secret sha512 $6$qEFGbI0G.HlL7A0E$dgO9hmqvLVWMQPL6riRz2BsiG2g8ngZQSn6543X0hHWCkS/yYA1HCfuUtkMUyOgwV.C9HOrhaDptJQ5w6YKf70
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model ribd
+!
+hostname R4
+!
+spanning-tree mode mstp
+!
+vlan 22,55
+!
+management api http-commands
+   protocol https ssl profile MY_CUSTOM_PROFILE
+   no shutdown
+!
+management security
+   ssl profile MY_CUSTOM_PROFILE
+      tls versions 1.2
+      cipher-list ECDHE-RSA-AES256-GCM-SHA384
+      certificate capi.pem key capikey.pem
+      trust certificate ARISTA_SIGNING_CA.crt
+      trust certificate ARISTA_ROOT_CA.crt
+!
+interface Ethernet1
+!
+interface Ethernet2
+!
+interface Ethernet3
+!
+interface Ethernet4
+!
+interface Ethernet5
+!
+interface Ethernet6
+!
+interface Ethernet7
+!
+interface Ethernet8
+!
+interface Management1
+   ip address 192.168.233.104/24
+!
+ip routing
+!
+ntp server 1.1.1.1
+ntp server 10.10.10.10
+ntp server 55.55.55.55
+!
+router bgp 1
+!
+router ospf 1
+   network 0.0.0.0/0 area 0.0.0.0
+   max-lsa 12000
+!
+end[0m
+[0m[1m[32m^^^^ END show_command_test ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[0m[1m[34m* R5 ** changed : False ********************************************************[0m
+[0m[1m[32mvvvv show_command_test ** changed : False vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv INFO[0m
+[0m[1m[32m---- send_command ** changed : False ------------------------------------------- INFO[0m
+[0m! Command: show running-config
+! device: R5 (vEOS-lab, EOS-4.26.10M)
+!
+! boot system flash:/vEOS-lab.swi
+!
+no aaa root
+!
+username katariam privilege 15 secret sha512 $6$KruPYxK4LBm2v7bU$yD8jOBMNGv92WIlYOokhfDh98pki0LQIV5e.O539wUGIp5czp9Z4VX15mdgOqL0KT7PXv2XrCXr2FLDGoVoR3/
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model ribd
+!
+hostname R5
+!
+spanning-tree mode mstp
+!
+vlan 22,55
+!
+management api http-commands
+   protocol https ssl profile MY_CUSTOM_PROFILE
+   no shutdown
+!
+management security
+   ssl profile MY_CUSTOM_PROFILE
+      tls versions 1.2
+      cipher-list ECDHE-RSA-AES256-GCM-SHA384
+      certificate capi.pem key capikey.pem
+      trust certificate ARISTA_SIGNING_CA.crt
+      trust certificate ARISTA_ROOT_CA.crt
+!
+interface Ethernet1
+!
+interface Ethernet2
+!
+interface Ethernet3
+!
+interface Ethernet4
+!
+interface Ethernet5
+!
+interface Ethernet6
+!
+interface Ethernet7
+!
+interface Ethernet8
+!
+interface Management1
+   ip address 192.168.233.105/24
+!
+ip routing
+!
+ntp server 1.1.1.1
+ntp server 10.10.10.10
+ntp server 55.55.55.55
+!
+router bgp 1
+!
+router ospf 1
+   network 0.0.0.0/0 area 0.0.0.0
+   max-lsa 12000
+!
+end[0m
+[0m[1m[32m^^^^ END show_command_test ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[0m
